@@ -1,53 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
-    <title>Stock Data Filter</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Line Chart with D3.js</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+  <style>
+    .chart-container {
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: #ccc;
+      shape-rendering: crispEdges;
+    }
+
+    .axis text {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+    }
+
+    .line {
+      fill: none;
+      stroke: steelblue;
+      stroke-width: 2px;
+    }
+  </style>
 </head>
 <body>
-    <h1>Stock Data Filter</h1>
 
-    <div>
-        <label for="stockNameFilter">Filter by Stock Name:</label>
-        <select id="stockNameFilter">
-            <option value="">Select Stock Name</option>
-            <!-- Options will be populated dynamically -->
-        </select>
-    </div>
-    
-    <div>
-        <label for="dateFilter">Filter by Date:</label>
-        <select id="dateFilter">
-            <option value="">Select Date</option>
-            <!-- Options will be populated dynamically -->
-        </select>
-    </div>
-    
-    <div>
-        <label for="priceFilter">Filter by Price:</label>
-        <select id="priceFilter">
-            <option value="">Select Price</option>
-            <!-- Options will be populated dynamically -->
-        </select>
-    </div>
+<div class="filter-container">
+  <label for="stockNameFilter">Filter by Stock Name:</label>
+  <select id="stockNameFilter">
+    <option value="">Select Stock Name</option>
+    <!-- Options will be populated dynamically -->
+  </select>
 
-    <button onclick="applyFilters()">Apply Filters</button>
+  <label for="dateFilter">Filter by Date:</label>
+  <select id="dateFilter">
+    <option value="">Select Date</option>
+    <!-- Options will be populated dynamically -->
+  </select>
 
-    <table id="stockData">
-        <thead>
-            <tr>
-                <th>Stock</th>
-                <th>Date</th>
-                <th>Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Data rows will be populated dynamically -->
-        </tbody>
-    </table>
+  <label for="priceFilter">Filter by Price:</label>
+  <select id="priceFilter">
+    <option value="">Select Price</option>
+    <!-- Options will be populated dynamically -->
+  </select>
 
-    <script src="example.js"></script> <!-- Include your JavaScript file -->
+  <button id="filterBtn">Filter</button>
+</div>
+
+<div class="chart-container">
+  <svg id="chart"></svg>
+</div>
+
+<script src="example.js"></script>
 </body>
 </html>
