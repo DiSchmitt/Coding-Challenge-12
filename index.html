@@ -1,64 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive Line Chart with D3.js</title>
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
-  <style>
-    .chart-container {
-      max-width: 600px;
-      margin: auto;
-    }
-
-    .axis path,
-    .axis line {
-      fill: none;
-      stroke: #ccc;
-      shape-rendering: crispEdges;
-    }
-
-    .axis text {
-      font-family: Arial, sans-serif;
-      font-size: 12px;
-    }
-
-    .line {
-      fill: none;
-      stroke: steelblue;
-      stroke-width: 2px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>D3.js Stock Visualization</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="container">
+        <form id="filterForm">
+            <label for="stockSelect">Select Stock:</label>
+            <select id="stockSelect"></select>
+        </form>
+        <svg id="chart"></svg>
+    </div>
 
-<div class="filter-container">
-  <label for="stockNameFilter">Filter by Stock Name:</label>
-  <select id="stockNameFilter">
-    <option value="">Select Stock Name</option>
-    <!-- Options will be populated dynamically -->
-  </select>
-
-  <label for="dateFilter">Filter by Date:</label>
-  <select id="dateFilter">
-    <option value="">Select Date</option>
-    <!-- Options will be populated dynamically -->
-  </select>
-
-  <label for="priceFilter">Filter by Price:</label>
-  <select id="priceFilter">
-    <option value="">Select Price</option>
-    <!-- Options will be populated dynamically -->
-  </select>
-
-  <button id="filterBtn">Filter</button>
-</div>
-
-<div class="chart-container">
-  <svg id="chart"></svg>
-</div>
-
-<script src="example.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="example.js"></script>
 </body>
 </html>
